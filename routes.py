@@ -8,13 +8,12 @@ router = APIRouter()
 
 @router.post("/", \
             response_description="Add new job application entry", \
-                status_code=status.HTTP_201_CREATED, \
-                    response_model=JobApplicationEntry)
+                status_code=status.HTTP_201_CREATED,
+                response_model=JobApplicationEntry)
 def create_job_application_entry(request: Request, jobApplicationEntry: JobApplicationEntry = Body(...)):
     jobApplicationEntry = jsonable_encoder(jobApplicationEntry)
     new_job_application_entry = request.app.database["jobApplicationRecords"].insert_one(jobApplicationEntry)
-    # created_job_application_entry = request.app.database["jobApplicationsRecords"].find_one({"url": new_job_application_entry.inserted_url})
-    created_job_application_entry = request.app.database["jobApplicationsRecords"].find_one({"_id": new_job_application_entry.inserted_id})
+    created_job_application_entry = request.app.database["jobApplicationRecords"].find_one({"_id": new_job_application_entry.inserted_id})
     
     return created_job_application_entry
 

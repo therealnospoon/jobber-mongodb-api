@@ -5,6 +5,7 @@ from pydantic import BaseModel, Field
 
 class JobApplicationEntry(BaseModel):
     id: str = Field(default_factory=uuid.uuid4, alias='_id')
+    createdOn: datetime = Field(default_factory=datetime.now)
     company: str = Field(...)
     position: str = Field(...)
     dateApplied: datetime = Field(...)
@@ -17,6 +18,7 @@ class JobApplicationEntry(BaseModel):
         json_schema_extra = {
             "example": {
                 "_id": "066de609-b04a-4b30-b46c-32537c7f1f6e",
+                "createdOn": "2021-07-01T00:00:00",
                 "company": "Google",
                 "position": "Software Engineer",
                 "dateApplied": "2021-07-01T00:00:00",

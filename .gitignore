@@ -3,7 +3,7 @@
 
 # Python virtual environment
 venv--pymongo-api-mac/
-venv--pymongo-api/
+venv-pymongo-api/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -36,7 +36,8 @@ def find_job_application_entry(request: Request, id: str):
 
 @router.put("/{id}", \
             response_description="Update a job application entry", \
-                response_model=JobApplicationEntry)
+                status_code=status.HTTP_200_OK, \
+                    response_model=JobApplicationEntry)
 def update_job_application_entry(request: Request, id: str, jobApplicationEntry: JobApplicationEntryUpdate = Body(...)):
     jobApplicationEntry = {k: v for k, v in jobApplicationEntry.model_dump().items() if v is not None}
     if len(jobApplicationEntry) >= 1:

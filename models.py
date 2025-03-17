@@ -42,19 +42,19 @@ class JobApplicationEntry(BaseModel):
             }
         }
 class JobApplicationEntryUpdate(BaseModel):
-    company: Optional[str]
-    position: Optional[str]
-    dateApplied: Optional[datetime]
-    companySize: Optional[str]
-    jobLocation: Optional[str]
-    response: Optional[bool]
-    responseType: Optional[str]
-    responseDate: Optional[datetime]
-    rejected: Optional[bool]
-    rejectionReason: Optional[str]
-    status: Optional[str]
-    notes: Optional[str]
-    url: Optional[str]
+    company: Optional[str] = None
+    position: Optional[str] = None
+    dateApplied: Optional[datetime] = None
+    companySize: Optional[str] = None
+    jobLocation: Optional[str] = None
+    response: Optional[bool] = None
+    responseType: Optional[str] = None
+    responseDate: Optional[datetime] = None
+    rejected: Optional[bool] = None
+    rejectionReason: Optional[str] = None
+    status: Optional[str] = None
+    notes: Optional[str] = None
+    url: Optional[str] = None
     class Config:
         schema_extra = {
             "example": {

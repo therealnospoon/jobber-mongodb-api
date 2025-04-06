@@ -18,10 +18,10 @@ def create_job_application_entry(request: Request, jobApplicationEntry: JobAppli
     return created_job_application_entry
 
 @router.get("/", \
-            response_description="List all job application entries", \
+            response_description="List of all job application entries", \
                 response_model=List[JobApplicationEntry])
 def list_job_application_entries(request: Request):
-    job_application_entries = list(request.app.database["jobApplicationRecords"].find(limit=100))
+    job_application_entries = list(request.app.database["jobApplicationRecords"].find(limit=100).sort("createdOn", -1))
     
     return job_application_entries
 
